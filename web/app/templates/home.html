@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Pascal Logger - Home{% endblock %}
+
+{% block content %}
+<header>
+    <h1>Pascal</h1>
+</header>
+
+<section class="quick-buttons">
+    <div class="button-grid">
+        <button class="quick-btn bathroom"
+                hx-post="/log"
+                hx-vals='{"category": "bathroom", "event_type": "pee"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML">
+            Pee
+        </button>
+        <button class="quick-btn bathroom"
+                hx-post="/log"
+                hx-vals='{"category": "bathroom", "event_type": "poop"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML">
+            Poop
+        </button>
+        <button class="quick-btn feeding"
+                hx-post="/log"
+                hx-vals='{"category": "feeding", "event_type": "meal"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML">
+            Meal
+        </button>
+        <button class="quick-btn feeding"
+                hx-post="/log"
+                hx-vals='{"category": "feeding", "event_type": "water"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML">
+            Water
+        </button>
+        <button class="quick-btn sleep"
+                hx-post="/log"
+                hx-vals='{"category": "sleep", "event_type": "sleep"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML">
+            Sleep
+        </button>
+        <button class="quick-btn sleep"
+                hx-post="/log"
+                hx-vals='{"category": "sleep", "event_type": "wake"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML">
+            Wake
+        </button>
+    </div>
+</section>
+
+<section class="logged-by-section">
+    <label for="logged-by-select">Logged by:</label>
+    <select id="logged-by-select" name="logged_by" hx-post="/set-user" hx-swap="none">
+        {% for user in log_users %}
+        <option value="{{ user }}" {% if user == current_user %}selected{% endif %}>{{ user }}</option>
+        {% endfor %}
+    </select>
+</section>
+
+<nav class="bottom-nav">
+    <a href="/today" role="button" class="outline">Today's log</a>
+    <a href="/summary" role="button" class="outline">Summary</a>
+</nav>
+{% endblock %}

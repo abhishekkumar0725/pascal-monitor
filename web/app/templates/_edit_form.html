@@ -1,0 +1,62 @@
+<article class="entry-row editing" id="entry-{{ entry.id }}">
+    <form hx-post="/entries/{{ entry.id }}"
+          hx-target="#entry-{{ entry.id }}"
+          hx-swap="outerHTML"
+          class="edit-form">
+        <div class="edit-form-row">
+            <label>
+                Type:
+                <input type="text" name="event_type" value="{{ entry.event_type }}" required>
+            </label>
+        </div>
+
+        {% if entry.category == 'feeding' %}
+        <div class="edit-form-row">
+            <label>
+                Amount:
+                <input type="text" name="amount" value="{{ entry.amount or '' }}">
+            </label>
+        </div>
+        {% elif entry.category == 'bathroom' %}
+        <div class="edit-form-row">
+            <label>
+                Location:
+                <input type="text" name="location" value="{{ entry.location or '' }}">
+            </label>
+        </div>
+        {% elif entry.category == 'training' %}
+        <div class="edit-form-row">
+            <label>
+                Command:
+                <input type="text" name="command" value="{{ entry.command or '' }}">
+            </label>
+            <label>
+                Result:
+                <select name="result">
+                    <option value="">--</option>
+                    <option value="pass" {% if entry.result == 'pass' %}selected{% endif %}>Pass</option>
+                    <option value="partial" {% if entry.result == 'partial' %}selected{% endif %}>Partial</option>
+                    <option value="fail" {% if entry.result == 'fail' %}selected{% endif %}>Fail</option>
+                </select>
+            </label>
+        </div>
+        {% endif %}
+
+        <div class="edit-form-row">
+            <label>
+                Notes:
+                <input type="text" name="notes" value="{{ entry.notes or '' }}">
+            </label>
+        </div>
+
+        <div class="edit-form-actions">
+            <button type="submit" class="primary">Save</button>
+            <button type="button" class="secondary outline"
+                    hx-get="/entries/{{ entry.id }}/row"
+                    hx-target="#entry-{{ entry.id }}"
+                    hx-swap="outerHTML">
+                Cancel
+            </button>
+        </div>
+    </form>
+</article>

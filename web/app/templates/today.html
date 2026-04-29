@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Today's Log - Pascal Logger{% endblock %}
+
+{% block content %}
+<header>
+    <h1>Today's Log</h1>
+    <p class="date-display">{{ display_date }}</p>
+</header>
+
+<section class="date-nav">
+    <a href="/today?date={{ prev_date }}" role="button" class="outline secondary">&larr; Prev</a>
+    <a href="/today" role="button" class="outline">Today</a>
+    <a href="/today?date={{ next_date }}" role="button" class="outline secondary">Next &rarr;</a>
+</section>
+
+<section class="entries-list" id="entries-list">
+    {% if entries %}
+        {% for entry in entries %}
+            {% include "_entry_row.html" %}
+        {% endfor %}
+    {% else %}
+        <p class="no-entries">No entries for this day.</p>
+    {% endif %}
+</section>
+
+<nav class="bottom-nav">
+    <a href="/" role="button" class="outline">Back to Home</a>
+</nav>
+{% endblock %}

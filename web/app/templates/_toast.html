@@ -1,0 +1,12 @@
+<div class="toast toast-{{ status }}" role="alert">
+    {{ message }}
+</div>
+<script>
+    setTimeout(function() {
+        var toast = document.querySelector('.toast');
+        if (toast) {
+            toast.classList.add('fade-out');
+            setTimeout(function() { toast.remove(); }, 300);
+        }
+    }, 3000);
+</script>

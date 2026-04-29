@@ -1,0 +1,26 @@
+<article class="entry-row" id="entry-{{ entry.id }}" data-category="{{ entry.category }}">
+    <div class="entry-content" hx-get="/entries/{{ entry.id }}/edit" hx-target="#entry-{{ entry.id }}" hx-swap="outerHTML">
+        <span class="entry-time">{{ entry.occurred_at.strftime('%-I:%M %p') }}</span>
+        <span class="entry-category category-{{ entry.category }}">{{ entry.category }}</span>
+        <span class="entry-type">{{ entry.event_type }}</span>
+        <span class="entry-detail">
+            {% if entry.category == 'feeding' and entry.amount %}
+                {{ entry.amount }}
+            {% elif entry.category == 'bathroom' and entry.location %}
+                @ {{ entry.location }}
+            {% elif entry.category == 'training' and entry.command %}
+                {{ entry.command }} ({{ entry.result or 'n/a' }})
+            {% elif entry.notes %}
+                {{ entry.notes[:30] }}{% if entry.notes|length > 30 %}...{% endif %}
+            {% endif %}
+        </span>
+        <span class="entry-user">{{ entry.logged_by }}</span>
+    </div>
+    <button class="entry-delete"
+            hx-delete="/entries/{{ entry.id }}"
+            hx-target="#entry-{{ entry.id }}"
+            hx-swap="outerHTML"
+            hx-confirm="Delete this entry?">
+        &times;
+    </button>
+</article>

@@ -1,0 +1,13 @@
+# Pascal Web Logger configuration
+# Override any value via environment variables (uppercase, prefixed with nothing)
+
+[app]
+port = 8000
+timezone = "America/New_York"
+log_users = ["Abhishek", "Vivian", "Other"]
+
+[paths]
+# For local dev on Mac, exports go to the data directory
+# On the Pi, override via CSV_EXPORT_DIR=/opt/pascal-web/exports
+csv_export_dir = "../data"
+legacy_csv_dir = "../data"

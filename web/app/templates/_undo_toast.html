@@ -1,0 +1,21 @@
+<div class="toast toast-undo" role="alert" id="undo-toast-{{ entry_id }}">
+    Entry deleted.
+    <button hx-post="/entries/{{ entry_id }}/undelete"
+            hx-target="#toast-container"
+            hx-swap="innerHTML"
+            class="undo-btn">
+        Undo
+    </button>
+</div>
+<script>
+    (function() {
+        var toastId = 'undo-toast-{{ entry_id }}';
+        setTimeout(function() {
+            var toast = document.getElementById(toastId);
+            if (toast) {
+                toast.classList.add('fade-out');
+                setTimeout(function() { toast.remove(); }, 300);
+            }
+        }, 5000);
+    })();
+</script>

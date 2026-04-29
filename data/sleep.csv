@@ -1,0 +1,36 @@
+timestamp,event_type,notes
+2026-04-15 18:00:00,sleep,nap
+2026-04-15 19:05:00,wake,
+2026-04-17 08:00:00,sleep,went back to sleep - refused breakfast
+2026-04-17 18:00:00,sleep,lethargic - sleeping ~4 hours, barely eating/drinking/playing
+2026-04-17 20:10:00,sleep,after evening meal
+2026-04-18 09:00:00,wake,played until 9am
+2026-04-18 09:00:00,sleep,nap after play
+2026-04-18 11:00:00,wake,
+2026-04-18 12:45:00,sleep,
+2026-04-18 14:35:00,wake,
+2026-04-18 15:04:00,sleep,
+2026-04-18 16:23:00,wake,
+2026-04-19 08:00:00,wake,
+2026-04-20 08:30:00,sleep,
+2026-04-20 11:00:00,wake,
+2026-04-20 11:40:00,sleep,crated himself
+2026-04-20 17:15:00,sleep,crated himself
+2026-04-20 18:10:00,wake,
+2026-04-21 08:00:00,wake,
+2026-04-21 09:30:00,sleep,
+2026-04-21 11:00:00,wake,
+2026-04-21 12:25:00,sleep,fell asleep near Abhishek's legs
+2026-04-21 13:45:00,sleep,
+2026-04-21 15:30:00,wake,
+2026-04-22 08:00:00,wake,
+2026-04-22 14:30:00,sleep,
+2026-04-22 16:00:00,wake,
+2026-04-23 08:30:00,wake,
+2026-04-23 09:45:00,sleep,
+2026-04-25 08:00:00,wake,
+2026-04-26 07:15:00,wake,
+2026-04-26 08:30:00,sleep,crated
+2026-04-26 10:20:00,wake,
+2026-04-26 12:00:00,sleep,crated
+2026-04-26 13:35:00,wake,
