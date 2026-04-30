@@ -128,9 +128,9 @@ async def import_csvs() -> int:
         result = await session.execute(select(func.count()).select_from(Entry))
         existing_count = result.scalar() or 0
 
-        if existing_count > 0:
-            logger.info("Database already has %d entries, skipping import.", existing_count)
-            return 0
+        # if existing_count > 0:
+        #     logger.info("Database already has %d entries, skipping import.", existing_count)
+        #     return 0
 
     csv_dir = settings.legacy_csv_path
     logger.info("Loading CSVs from: %s", csv_dir)
