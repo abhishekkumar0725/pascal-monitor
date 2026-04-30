@@ -37,7 +37,7 @@ class Settings(BaseSettings):
     database_url: str = "sqlite+aiosqlite:///pascal.db"
 
     # App settings
-    port: int = 8000
+    port: int = 1331
     timezone: str = "America/New_York"
     log_users: list[str] = ["Abhishek", "Vivian", "Other"]
 
