@@ -12,6 +12,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.config import settings
 from app.db import get_session
 from app.services.entries import create_entry, get_entries_for_date
+from app.services.summary import get_summary_data
 
 router = APIRouter()
 templates = Jinja2Templates(directory="app/templates")
@@ -238,5 +239,37 @@ async def today(
             "display_date": display_date,
             "prev_date": prev_date,
             "next_date": next_date,
+        },
+    )
+
+
+@router.get("/summary", response_class=HTMLResponse)
+async def summary(
+    request: Request,
+    session: Annotated[AsyncSession, Depends(get_session)],
+    date: Annotated[str | None, Query()] = None,
+) -> HTMLResponse:
+    """Show summary page with stats and charts."""
+    tz = ZoneInfo(settings.timezone)
+
+    # Parse date parameter or default to today
+    if date:
+        try:
+            target_date = datetime.strptime(date, "%Y-%m-%d").date()
+        except ValueError:
+            target_date = datetime.now(tz).date()
+    else:
+        target_date = datetime.now(tz).date()
+
+    summary_data = await get_summary_data(session, target_date)
+    display_date = target_date.strftime("%A, %B %-d, %Y")
+
+    return templates.TemplateResponse(
+        request,
+        "summary.html",
+        {
+            "summary": summary_data,
+            "chart_data": summary_data["chart"],
+            "display_date": display_date,
         },
     )

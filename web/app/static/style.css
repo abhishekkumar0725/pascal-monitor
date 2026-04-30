@@ -417,3 +417,97 @@ header h1 {
     flex: 1;
     margin: 0;
 }
+
+/* Summary page */
+.summary-stats {
+    padding: 1rem 0;
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.stat-card {
+    background: var(--pico-card-background-color);
+    border: 1px solid var(--pico-muted-border-color);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    text-align: center;
+}
+
+.stat-value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--pico-primary);
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--pico-muted-color);
+    margin-top: 0.5rem;
+}
+
+.last-events {
+    padding: 1rem 0;
+}
+
+.last-events h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.last-event-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.last-event {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: var(--pico-card-background-color);
+    border: 1px solid var(--pico-muted-border-color);
+    border-radius: 0.5rem;
+}
+
+.last-event-label {
+    font-weight: 500;
+}
+
+.last-event-value {
+    color: var(--pico-muted-color);
+}
+
+.chart-section {
+    padding: 1rem 0;
+}
+
+.chart-section h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.chart-container {
+    background: var(--pico-card-background-color);
+    border: 1px solid var(--pico-muted-border-color);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    height: 300px;
+}
+
+@media (min-width: 768px) {
+    .stat-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .chart-container {
+        height: 350px;
+    }
+}

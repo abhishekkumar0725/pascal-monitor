@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}Pascal Logger - Summary{% endblock %}
+
+{% block content %}
+<header>
+    <h1>Summary</h1>
+    <p class="date-display">{{ display_date }}</p>
+</header>
+
+<section class="summary-stats">
+    <div class="stat-grid">
+        <div class="stat-card">
+            <span class="stat-value">{{ summary.event_counts.get('meal', 0) }}</span>
+            <span class="stat-label">Meals</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-value">{{ summary.event_counts.get('water', 0) }}</span>
+            <span class="stat-label">Water</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-value">{{ summary.event_counts.get('pee', 0) }}</span>
+            <span class="stat-label">Pees</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-value">{{ summary.event_counts.get('poop', 0) }}</span>
+            <span class="stat-label">Poops</span>
+        </div>
+    </div>
+</section>
+
+<section class="last-events">
+    <h2>Recent Activity</h2>
+    <div class="last-event-list">
+        <div class="last-event">
+            <span class="last-event-label">Last meal:</span>
+            <span class="last-event-value">{{ summary.last_meal.ago or 'No meals logged' }}</span>
+        </div>
+        <div class="last-event">
+            <span class="last-event-label">Last pee:</span>
+            <span class="last-event-value">{{ summary.last_pee.ago or 'No pees logged' }}</span>
+        </div>
+        <div class="last-event">
+            <span class="last-event-label">Last poop:</span>
+            <span class="last-event-value">{{ summary.last_poop.ago or 'No poops logged' }}</span>
+        </div>
+    </div>
+</section>
+
+<section class="chart-section">
+    <h2>Last 7 Days</h2>
+    <div class="chart-container">
+        <canvas id="weeklyChart"></canvas>
+    </div>
+</section>
+
+<nav class="bottom-nav">
+    <a href="/" role="button" class="outline">Home</a>
+    <a href="/today" role="button" class="outline">Today's log</a>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+const chartData = {{ chart_data | tojson }};
+
+const ctx = document.getElementById('weeklyChart').getContext('2d');
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: chartData.meals.map(d => d.date),
+        datasets: [
+            {
+                label: 'Meals',
+                data: chartData.meals.map(d => d.count),
+                backgroundColor: '#22c55e',
+            },
+            {
+                label: 'Pees',
+                data: chartData.pees.map(d => d.count),
+                backgroundColor: '#3b82f6',
+            },
+            {
+                label: 'Poops',
+                data: chartData.poops.map(d => d.count),
+                backgroundColor: '#f59e0b',
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    stepSize: 1
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                position: 'bottom'
+            }
+        }
+    }
+});
+</script>
+{% endblock %}

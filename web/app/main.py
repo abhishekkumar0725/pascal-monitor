@@ -11,7 +11,7 @@ from sqlalchemy import text
 
 from app.config import settings
 from app.db import async_session_factory
-from app.routes import entries, export, pages
+from app.routes import api, entries, export, pages
 from app.schemas import HealthResponse
 
 if TYPE_CHECKING:
@@ -50,6 +50,7 @@ app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 app.include_router(pages.router)
 app.include_router(entries.router)
 app.include_router(export.router)
+app.include_router(api.router)
 
 
 @app.get("/healthz", response_model=HealthResponse)
