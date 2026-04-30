@@ -351,3 +351,69 @@ header h1 {
         display: none;
     }
 }
+
+/* Full form container */
+#full-form-container {
+    padding: 1rem 0;
+}
+
+#full-form-container > button {
+    width: 100%;
+}
+
+/* Full form */
+#full-form {
+    background: var(--pico-card-background-color);
+    border: 1px solid var(--pico-muted-border-color);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+}
+
+#full-form .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+#full-form .form-grid label {
+    margin: 0;
+}
+
+#full-form .form-grid select,
+#full-form .form-grid input {
+    margin-bottom: 0;
+}
+
+#category-fields-container {
+    margin-bottom: 1rem;
+}
+
+#category-fields-container label {
+    margin-bottom: 0.5rem;
+}
+
+#category-fields-container input,
+#category-fields-container select {
+    margin-bottom: 0.5rem;
+}
+
+#full-form > label {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+#full-form textarea {
+    margin-bottom: 0;
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.form-actions button {
+    flex: 1;
+    margin: 0;
+}

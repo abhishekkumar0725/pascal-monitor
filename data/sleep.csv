@@ -2,7 +2,7 @@ timestamp,event_type,notes
 2026-04-15 18:00:00,sleep,nap
 2026-04-15 19:05:00,wake,
 2026-04-17 08:00:00,sleep,went back to sleep - refused breakfast
-2026-04-17 18:00:00,sleep,lethargic - sleeping ~4 hours, barely eating/drinking/playing
+2026-04-17 18:00:00,sleep,lethargic - sleeping ~4 hours
 2026-04-17 20:10:00,sleep,after evening meal
 2026-04-18 09:00:00,wake,played until 9am
 2026-04-18 09:00:00,sleep,nap after play

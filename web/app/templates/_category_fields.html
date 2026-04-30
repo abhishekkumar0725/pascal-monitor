@@ -1,0 +1,41 @@
+{% if category == 'feeding' %}
+<label>
+    Amount
+    <input type="text" name="amount" placeholder="e.g., 1 cup">
+</label>
+{% elif category == 'bathroom' %}
+<label>
+    Location
+    <input type="text" name="location" placeholder="e.g., backyard, walk">
+</label>
+{% elif category == 'training' %}
+<label>
+    Command
+    <input type="text" name="command" placeholder="e.g., sit, stay">
+</label>
+<label>
+    Result
+    <select name="result">
+        <option value="">--</option>
+        <option value="pass">Pass</option>
+        <option value="partial">Partial</option>
+        <option value="fail">Fail</option>
+    </select>
+</label>
+{% elif category == 'walk' %}
+<label>
+    Duration (minutes)
+    <input type="number" name="duration_min" placeholder="e.g., 30">
+</label>
+<label>
+    Distance (km)
+    <input type="number" name="distance_km" step="0.1" placeholder="e.g., 1.5">
+</label>
+{% elif category == 'vet' %}
+<!-- Vet uses notes for medication/visit details -->
+{% elif category == 'spending' %}
+<label>
+    Cost (USD)
+    <input type="number" name="cost_usd" step="0.01" placeholder="e.g., 25.99">
+</label>
+{% endif %}

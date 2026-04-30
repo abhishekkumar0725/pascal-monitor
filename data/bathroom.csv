@@ -1,8 +1,8 @@
 timestamp,event_type,location,notes
+2026-04-15 10:30:00,accident,artificial grass,purple diarrhea
 2026-04-15 19:05:00,accident,carpet,
 2026-04-15 20:35:00,pee,artificial grass,
-2026-04-15 20:55:00,poop,inside,diarrhea - red/purple color, smelled of raw meat
-2026-04-15 10:30:00,accident,artificial grass,purple diarrhea
+2026-04-15 20:55:00,poop,inside,diarrhea - red/purple color
 2026-04-16 14:45:00,pee,unknown,signaled he needed to pee
 2026-04-16 15:40:00,pee,unknown,signaled he needed to pee
 2026-04-17 01:30:00,pee,unknown,late night
@@ -56,3 +56,6 @@ timestamp,event_type,location,notes
 2026-04-26 11:40:00,pee,unknown,
 2026-04-26 13:35:00,pee,unknown,immediately after waking from crate
 2026-04-26 14:28:00,poop,unknown,
+2026-04-29 08:03:11,pee,,
+2026-04-29 12:55:46,pee,,
+2026-04-29 12:57:32,pee,,test note from curl

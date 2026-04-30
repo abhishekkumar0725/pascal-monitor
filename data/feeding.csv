@@ -1,18 +1,18 @@
 timestamp,event_type,amount,notes
+2026-04-15 10:45:00,treat,1 pack Panacur C,dewormer
+2026-04-15 10:45:00,water,,after Panacur C
 2026-04-15 18:00:00,water,,
 2026-04-15 19:25:00,water,,
 2026-04-15 20:38:00,water,small amount,
-2026-04-15 10:45:00,treat,1 pack Panacur C,dewormer
-2026-04-15 10:45:00,water,,after Panacur C
 2026-04-16 07:40:00,meal,0.5 portion,ate a little
 2026-04-16 09:05:00,meal,kibble + wet food,second half of breakfast - probiotic hidden in food
 2026-04-16 12:00:00,meal,0.5 cup kibble,lunch - Panacur C mixed in
 2026-04-16 14:10:00,water,,
-2026-04-16 14:55:00,water,,
-2026-04-16 15:44:00,water,,
-2026-04-16 15:05:00,treat,kibble pieces,used as training reward
 2026-04-16 14:45:00,treat,,reward for signaling to pee
+2026-04-16 14:55:00,water,,
+2026-04-16 15:05:00,treat,kibble pieces,used as training reward
 2026-04-16 15:40:00,treat,,reward for signaling to pee
+2026-04-16 15:44:00,water,,
 2026-04-17 09:00:00,meal,0.5 portion,ate half of breakfast
 2026-04-17 11:30:00,treat,,given by friend visiting
 2026-04-17 14:45:00,meal,0.5 portion,other half of breakfast
@@ -50,13 +50,15 @@ timestamp,event_type,amount,notes
 2026-04-24 14:00:00,meal,0.67 cup kibble,lunch
 2026-04-24 19:30:00,meal,0.67 cup kibble,dinner
 2026-04-25 08:00:00,meal,0.5 cup kibble,breakfast - ate quickly
-2026-04-26 07:45:00,meal,0.5 cup kibble,breakfast - ate over 35 min; trained while feeding
-2026-04-26 11:45:00,meal,,second meal - post-vet
-2026-04-26 13:45:00,treat,pupsicle,frozen pumpkin puree + chicken breast + kibble
-2026-04-26 14:30:00,treat,Simparica,flea/tick/heartworm prevention
-2026-04-26 14:33:00,treat,Albon 125mg (sulfadimethoxine),day 2 of 5 - coccidia treatment
 2026-04-25 09:00:00,vomit,,4 incidents this morning - possibly ate too fast or too much previous day
 2026-04-25 12:00:00,treat,,anti-nausea injection/medication from vet
 2026-04-25 13:00:00,meal,0.5 can Hill's Digestive Care wet food,post-vet; 3-day digestive diet
 2026-04-25 15:30:00,meal,0.5 can Hill's Digestive Care wet food,
 2026-04-25 18:00:00,treat,Albon 250mg (sulfadimethoxine),day 1 of 5 - coccidia treatment - loading dose
+2026-04-26 07:45:00,meal,0.5 cup kibble,breakfast - ate over 35 min; trained while feeding
+2026-04-26 11:45:00,meal,,second meal - post-vet
+2026-04-26 13:45:00,treat,pupsicle,frozen pumpkin puree + chicken breast + kibble
+2026-04-26 14:30:00,treat,Simparica,flea/tick/heartworm prevention
+2026-04-26 14:33:00,treat,Albon 125mg (sulfadimethoxine),day 2 of 5 - coccidia treatment
+2026-04-29 08:03:11,meal,,
+2026-04-29 08:05:36,meal,,

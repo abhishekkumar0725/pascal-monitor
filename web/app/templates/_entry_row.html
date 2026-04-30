@@ -10,6 +10,13 @@
                 @ {{ entry.location }}
             {% elif entry.category == 'training' and entry.command %}
                 {{ entry.command }} ({{ entry.result or 'n/a' }})
+            {% elif entry.category == 'walk' %}
+                {% if entry.duration_min %}{{ entry.duration_min }} min{% endif %}
+                {% if entry.distance_km %} · {{ entry.distance_km }} km{% endif %}
+            {% elif entry.category == 'vet' %}
+                {% if entry.notes %}{{ entry.notes[:30] }}{% if entry.notes|length > 30 %}...{% endif %}{% endif %}
+            {% elif entry.category == 'spending' and entry.cost_usd %}
+                ${{ "%.2f"|format(entry.cost_usd) }}
             {% elif entry.notes %}
                 {{ entry.notes[:30] }}{% if entry.notes|length > 30 %}...{% endif %}
             {% endif %}

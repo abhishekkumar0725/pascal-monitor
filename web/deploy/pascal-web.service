@@ -1,0 +1,23 @@
+[Unit]
+Description=Pascal Web Logger
+After=network.target
+
+[Service]
+Type=simple
+User=pascal
+Group=pascal
+WorkingDirectory=/opt/pascal-web/web
+EnvironmentFile=/etc/pascal-web.env
+ExecStart=/opt/pascal-web/web/.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000
+Restart=always
+RestartSec=5
+
+# Hardening
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/opt/pascal-web/web
+PrivateTmp=yes
+
+[Install]
+WantedBy=multi-user.target

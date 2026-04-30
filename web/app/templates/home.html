@@ -4,7 +4,7 @@
 
 {% block content %}
 <header>
-    <h1>Pascal</h1>
+    <h1>Pascal Monitor</h1>
 </header>
 
 <section class="quick-buttons">
@@ -61,6 +61,12 @@
         <option value="{{ user }}" {% if user == current_user %}selected{% endif %}>{{ user }}</option>
         {% endfor %}
     </select>
+</section>
+
+<section id="full-form-container">
+    <button class="outline" hx-get="/form/expand" hx-target="#full-form-container" hx-swap="innerHTML">
+        More options...
+    </button>
 </section>
 
 <nav class="bottom-nav">

@@ -1,0 +1,65 @@
+<form id="full-form"
+      hx-post="/log/full"
+      hx-target="#toast-container"
+      hx-swap="innerHTML">
+    <div class="form-grid">
+        <label>
+            Category
+            <select name="category"
+                    hx-get="/form/event-types"
+                    hx-target="#event-type-container"
+                    hx-include="[name='category']"
+                    hx-swap="innerHTML"
+                    hx-trigger="change">
+                <option value="feeding">Feeding</option>
+                <option value="bathroom">Bathroom</option>
+                <option value="sleep">Sleep</option>
+                <option value="training">Training</option>
+                <option value="walk">Walk</option>
+                <option value="vet">Vet</option>
+                <option value="spending">Spending</option>
+            </select>
+        </label>
+
+        <label id="event-type-container">
+            Event Type
+            <select name="event_type">
+                <option value="meal">Meal</option>
+                <option value="water">Water</option>
+                <option value="treat">Treat</option>
+            </select>
+        </label>
+
+        <label>
+            When
+            <input type="datetime-local" name="occurred_at" value="{{ now_local }}">
+        </label>
+    </div>
+
+    <div id="category-fields-container">
+        <label>
+            Amount
+            <input type="text" name="amount" placeholder="e.g., 1 cup">
+        </label>
+    </div>
+
+    <label>
+        Notes
+        <textarea name="notes" rows="2" placeholder="Optional notes..."></textarea>
+    </label>
+
+    <div class="form-actions">
+        <button type="submit" class="primary">Log Entry</button>
+        <button type="button" class="secondary outline"
+                hx-get="/form/collapse"
+                hx-target="#full-form-container"
+                hx-swap="innerHTML">Cancel</button>
+    </div>
+</form>
+
+<script>
+// Update category fields when category changes
+document.querySelector('[name="category"]').addEventListener('change', function() {
+    htmx.ajax('GET', '/form/category-fields?category=' + this.value, {target: '#category-fields-container', swap: 'innerHTML'});
+});
+</script>

@@ -1,0 +1,6 @@
+Event Type
+<select name="event_type">
+    {% for event_type in event_types %}
+    <option value="{{ event_type }}">{{ event_type.replace('_', ' ').title() }}</option>
+    {% endfor %}
+</select>
