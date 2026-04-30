@@ -2,7 +2,7 @@
 # Override any value via environment variables (uppercase, prefixed with nothing)
 
 [app]
-port = 8000
+port = 1331
 timezone = "America/New_York"
 log_users = ["Abhishek", "Vivian", "Other"]
 
